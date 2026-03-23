@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Management Chapter 4 MCQ Quiz</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1d5db;
+      --hover: #f3f4f6;
+      --correct: #dcfce7;
+      --correct-border: #16a34a;
+      --wrong: #fee2e2;
+      --wrong-border: #dc2626;
+      --accent: #1d4ed8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
+    .header {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    .header p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    button.control {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button.control:hover { background: var(--hover); }
+    .question-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.04);
+    }
+    .q-number {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .q-text {
+      font-size: 18px;
+      margin-bottom: 14px;
+      white-space: pre-wrap;
+    }
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+    .option {
+      width: 100%;
+      text-align: left;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 14px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background .15s ease, border-color .15s ease, transform .05s ease;
+    }
+    .option:hover {
+      background: var(--hover);
+    }
+    .option:active {
+      transform: translateY(1px);
+    }
+    .option.correct {
+      background: var(--correct);
+      border-color: var(--correct-border);
+    }
+    .option.wrong {
+      background: var(--wrong);
+      border-color: var(--wrong-border);
+    }
+    .option.disabled {
+      cursor: default;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: 700;
+      min-height: 22px;
+    }
+    .feedback.correct { color: #166534; }
+    .feedback.wrong { color: #991b1b; }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Project Management: Achieving Competitive Advantage, 5e (Pinto)</h1>
+      <p><strong>Chapter 4:</strong> Leadership and the Project Manager</p>
+      <p>This file includes all <strong>66 MCQ questions</strong> from the PDF, with wording and answer choices preserved from the source.</p>
+      <div class="controls">
+        <button class="control" onclick="resetQuiz()">Reset all answers</button>
+      </div>
+    </div>
+
+    <div id="quiz"></div>
+
+    <div class="footer">
+      Interactive HTML quiz generated from the uploaded PDF.
+    </div>
+  </div>
+
+  <script>
+const questions = [
+  { number: 1, question: "Which statement about scope management is BEST?", options: { A: "Scope management must take place during the conceptual development, full definition, execution, and termination phases.", B: "Project goals don't matter in scope management as long as the budget is not exceeded.", C: "Scope management is accomplished in a single step by any one project team member.", D: "Scope management can begin once a project hits operational level." }, answer: "A" },
+
+  { number: 2, question: "The Scope Management chapter begins and ends with the quote, \"It's a dream until you write it down. Then it's:", options: { A: "Etched in stone.\"", B: "A scope statement.\"", C: "A documented dream.\"", D: "A goal.\"" }, answer: "D" },
+
+  { number: 3, question: "Which of these is NOT an element of project scope management?", options: { A: "Project champion", B: "Scope statement", C: "Project closeout", D: "Control systems" }, answer: "A" },
+
+  { number: 4, question: "Scope management for a project begins with:", options: { A: "A work package.", B: "An organization breakdown structure.", C: "A statement of goals.", D: "A configuration statement." }, answer: "C" },
+
+  { number: 5, question: "Restrictions that affect project development are:", options: { A: "Problems.", B: "Constraints.", C: "Stop-limits.", D: "Limitations." }, answer: "B" },
+
+  { number: 6, question: "Considering different ways to accomplish an objective before selecting one is part of:", options: { A: "Information gathering.", B: "Need statement.", C: "Project objectives.", D: "Alternative analysis." }, answer: "D" },
+
+  { number: 7, question: "Work schedules and location limits in selecting courses are examples of:", options: { A: "Scope statements.", B: "Alternatives.", C: "Constraints.", D: "Goals." }, answer: "C" },
+
+  { number: 8, question: "Conceptual development for a project concludes with:", options: { A: "Project objectives.", B: "Alternative analysis.", C: "Project delivery.", D: "Team dissolution." }, answer: "A" },
+
+  { number: 9, question: "A poorly understood problem during conceptual development often leads to:", options: { A: "Problem restatement.", B: "Cost overruns.", C: "Problem clarification.", D: "Task confusion." }, answer: "B" },
+
+  { number: 10, question: "Which statement about conceptual development is BEST?", options: { A: "Goals should be vague to allow flexibility.", B: "Solutions should be locked early.", C: "It reduces project complexity to manageable levels.", D: "Goals should be overly optimistic." }, answer: "C" },
+
+  { number: 11, question: "The statement of work should contain:", options: { A: "Project objectives.", B: "Description of work.", C: "Expected outcomes.", D: "All of these." }, answer: "D" },
+
+  { number: 12, question: "A statement of work identifies:", options: { A: "A need.", B: "Project team members.", C: "Organization structure.", D: "Alternatives." }, answer: "A" },
+
+  { number: 13, question: "The description and scope section of an SOW includes:", options: { A: "Environmental risks.", B: "Termination clauses.", C: "Expected benefits.", D: "Milestones." }, answer: "C" },
+
+  { number: 14, question: "Expected commitments from other departments are listed in:", options: { A: "Approach section.", B: "Risks section.", C: "Acceptance criteria.", D: "Resource requirements." }, answer: "D" },
+
+  { number: 15, question: "A testing plan appears in which SOW section?", options: { A: "Acceptance criteria.", B: "Risks.", C: "Scope.", D: "Approach." }, answer: "A" },
+
+  { number: 16, question: "Formal approval to begin a project is called:", options: { A: "Go ahead.", B: "Send off.", C: "Work authorization.", D: "Work release." }, answer: "C" },
+
+  { number: 17, question: "For external projects, work authorization mainly addresses:", options: { A: "Budget linkage.", B: "Audit trails.", C: "Resources.", D: "Contract obligations." }, answer: "D" },
+
+  { number: 18, question: "Contractual documentation specifying functionality is:", options: { A: "Contractual requirements.", B: "Valid consideration.", C: "Terms.", D: "Performance clause." }, answer: "A" },
+
+  { number: 19, question: "The exchange defined in a contract is:", options: { A: "Terms.", B: "Valid consideration.", C: "Reciprocity.", D: "Fairness." }, answer: "B" },
+
+  { number: 20, question: "Excusable delays and allowable costs are in:", options: { A: "Bylaws.", B: "Amendments.", C: "Contracted terms.", D: "Dissolution clauses." }, answer: "C" },
+
+  { number: 21, question: "A fully completed deliverable project is a:", options: { A: "Umbrella contract.", B: "All-inclusive contract.", C: "Cost-plus contract.", D: "Turnkey contract." }, answer: "D" },
+
+  { number: 22, question: "Which is TRUE about contract types?", options: { A: "Cost-plus risks overruns; turnkey is often underbid.", B: "Cost-plus saves money; turnkey underbids.", C: "Cost-plus saves money; turnkey overbids.", D: "Cost-plus risks overruns; turnkey often overbids." }, answer: "D" },
+
+  { number: 23, question: "Paying costs plus a fee is a:", options: { A: "Cost-plus contract.", B: "Lump sum.", C: "Time & material.", D: "Fixed wage." }, answer: "A" },
+
+  { number: 24, question: "Reporting frequency and content are defined by:", options: { A: "OBS.", B: "Scope reporting.", C: "Information system.", D: "Need-to-know." }, answer: "B" },
+
+  { number: 25, question: "Milestone progress is tracked using:", options: { A: "S-curves.", B: "Schedule status.", C: "Earned value.", D: "Technical reports." }, answer: "B" },
+
+  { number: 26, question: "Costs vs schedule graph is called:", options: { A: "S-curve.", B: "Gantt chart.", C: "Radar chart.", D: "Budget plot." }, answer: "A" },
+
+  { number: 27, question: "Earned value shows:", options: { A: "Actual cost.", B: "Performance slippage.", C: "Budgeted work performed.", D: "Time slippage." }, answer: "C" },
+
+  { number: 44, question: "A measurable project output is a:", options: { A: "Product.", B: "Deliverable.", C: "Tangible.", D: "Work product." }, answer: "B" },
+
+  { number: 45, question: "Project team structure and procedures are in the:", options: { A: "WBS.", B: "Rules.", C: "Scope statement.", D: "Management plan." }, answer: "D" },
+
+  { number: 46, question: "Which step creates project bureaucracy?", options: { A: "Management plan.", B: "WBS.", C: "Baseline.", D: "Goal criteria." }, answer: "A" },
+
+  { number: 47, question: "Estimating project duration depends on:", options: { A: "Goal criteria.", B: "WBS.", C: "Baseline.", D: "Plan." }, answer: "B" },
+
+  { number: 48, question: "Determining relationships between activities is done by:", options: { A: "Goals.", B: "Plan.", C: "WBS.", D: "Baseline." }, answer: "C" },
+
+  { number: 49, question: "Budget and schedule data are in:", options: { A: "Goals.", B: "Plan.", C: "WBS.", D: "Baseline." }, answer: "D" },
+
+  { number: 50, question: "Final planning step is:", options: { A: "Baseline.", B: "WBS.", C: "Plan.", D: "Goals." }, answer: "A" },
+
+  { number: 51, question: "Hierarchical decomposition of work is:", options: { A: "Project plan.", B: "WBS.", C: "Deliverable.", D: "Expansion." }, answer: "B" },
+
+  { number: 52, question: "Lowest WBS units completing deliverables:", options: { A: "Activities.", B: "Tasks.", C: "Work packages.", D: "Milestones." }, answer: "C" },
+
+  { number: 53, question: "Lowest WBS level:", options: { A: "Atoms.", B: "Activities.", C: "Elements.", D: "Work packages." }, answer: "D" },
+
+  { number: 54, question: "Top WBS level:", options: { A: "Project.", B: "Deliverable.", C: "Subdeliverable.", D: "Work package." }, answer: "A" },
+
+  { number: 55, question: "Second WBS level:", options: { A: "Projects.", B: "Deliverables.", C: "Subdeliverables.", D: "Packages." }, answer: "B" },
+
+  { number: 56, question: "Subdeliverables:", options: { A: "Have durations.", B: "Consume resources.", C: "Have costs.", D: "Summarize work packages." }, answer: "D" },
+
+  { number: 57, question: "Costs of subdeliverables:", options: { A: "Sum of work packages.", B: "Phantom costs.", C: "Subtract from deliverables.", D: "Not recoverable." }, answer: "A" },
+
+  { number: 58, question: "Control documents are dynamic because:", options: { A: "Time limits.", B: "They evolve.", C: "Micromanagement risk.", D: "Late usage." }, answer: "B" },
+
+  { number: 59, question: "Cost control accounts are:", options: { A: "Not tracked.", B: "Profit centers.", C: "Assigned to units.", D: "Assigned to PM." }, answer: "C" },
+
+  { number: 60, question: "Task responsibility is identified using:", options: { A: "Control account.", B: "Responsibility chart.", C: "SOW.", D: "Reports." }, answer: "B" },
+
+  { number: 68, question: "Precise cost allocation uses:", options: { A: "Bar codes.", B: "Activity codes.", C: "WBS codes.", D: "Level codes." }, answer: "C" },
+
+  { number: 69, question: "OBS allows firms to:", options: { A: "Assign accounting.", B: "Avoid WBS.", C: "Create reports.", D: "Define work." }, answer: "D" },
+
+  { number: 73, question: "Task responsibility tool:", options: { A: "RAM.", B: "Milestone chart.", C: "Report.", D: "Package report." }, answer: "A" },
+
+  { number: 76, question: "Monitoring scope vs baseline:", options: { A: "Configuration control.", B: "Design control.", C: "Trend monitoring.", D: "Document control." }, answer: "A" },
+
+  { number: 77, question: "Preventing uncontrolled changes requires:", options: { A: "Configuration control.", B: "Trend monitoring.", C: "Design control.", D: "Document control." }, answer: "B" },
+
+  { number: 78, question: "Monitoring design stage:", options: { A: "Configuration control.", B: "Acquisition control.", C: "Design control.", D: "Specification control." }, answer: "C" },
+
+  { number: 79, question: "Tracking change orders requires:", options: { A: "Trend monitoring.", B: "Configuration control.", C: "Specification control.", D: "Document control." }, answer: "D" },
+
+  { number: 80, question: "Ordering materials requires:", options: { A: "Acquisition control.", B: "Specification control.", C: "Configuration control.", D: "Design control." }, answer: "A" },
+
+  { number: 81, question: "Ensuring correct specifications:", options: { A: "Acquisition control.", B: "Specification control.", C: "Design control.", D: "Other control." }, answer: "B" },
+
+  { number: 82, question: "Best time to set controls:", options: { A: "After project.", B: "End of project.", C: "Start of project.", D: "When needed." }, answer: "C" },
+
+  { number: 83, question: "Scope fixed at a point in time:", options: { A: "Scope.", B: "Design.", C: "Standard.", D: "Baseline." }, answer: "D" },
+
+  { number: 84, question: "Managing project components:", options: { A: "Configuration management.", B: "Scope control.", C: "System management.", D: "Baseline config." }, answer: "A" },
+
+  { number: 85, question: "Breaking project into components:", options: { A: "Review.", B: "Identification.", C: "Accounting.", D: "Control." }, answer: "B" },
+
+  { number: 86, question: "Best time to manage changes:", options: { A: "When needed.", B: "At planning stage.", C: "After completion.", D: "During identification." }, answer: "B" },
+
+  { number: 87, question: "Configuration review purpose:", options: { A: "Breakdown.", B: "Define specs.", C: "Agree on definition.", D: "Change specs." }, answer: "C" },
+
+  { number: 88, question: "Status accounting functions as:", options: { A: "Hierarchy.", B: "Arbitration.", C: "Cost control.", D: "Memory." }, answer: "D" },
+
+  { number: 89, question: "Stage with variable routing:", options: { A: "Configuration control.", B: "Review.", C: "Accounting.", D: "Identification." }, answer: "A" },
+
+  { number: 90, question: "Future project learning records:", options: { A: "Post analysis.", B: "Historical records.", C: "Financial closeout.", D: "Post-mortem." }, answer: "B" },
+
+  { number: 91, question: "Project spending review example:", options: { A: "Historical records.", B: "Post analysis.", C: "Financial closeout.", D: "Project plan." }, answer: "C" },
+
+  { number: 92, question: "Formal closeout analysis:", options: { A: "Historical records.", B: "Financial closeout.", C: "Reporting.", D: "Post-project analysis." }, answer: "D" },
+
+  { number: 93, question: "Reviewing performance after project:", options: { A: "Historical records.", B: "Financial closeout.", C: "Reporting.", D: "Post-project analysis." }, answer: "D" },
+
+  { number: 94, question: "Planning for final records occurs in:", options: { A: "Closeout.", B: "Completion.", C: "Reporting.", D: "Planning." }, answer: "A" },
+
+  { number: 95, question: "A priori information planning is done:", options: { A: "After project.", B: "Before project.", C: "At start.", D: "During." }, answer: "B" },
+
+  { number: 104, question: "Not part of sustainability triple bottom line:", options: { A: "Profitable sustainability.", B: "Economic.", C: "Environmental.", D: "Social." }, answer: "A" },
+
+  { number: 105, question: "Key sustainability concept:", options: { A: "Long-term focus.", B: "Consume income not capital.", C: "Think globally.", D: "Increase risk." }, answer: "B" },
+
+  { number: 106, question: "Sustainability requires focus on:", options: { A: "Planning.", B: "Conceptualization.", C: "Execution.", D: "Entire lifecycle." }, answer: "D" }
+];
+    function optionHtml(qIndex, label, text) {
+      return `
+        <button class="option" data-q="${qIndex}" data-choice="${label}" onclick="selectAnswer(${qIndex}, '${label}')">
+          <strong>${label})</strong> ${escapeHtml(text)}
+        </button>
+      `;
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById("quiz");
+      container.innerHTML = questions.map((q, i) => `
+        <section class="question-card" id="q-${q.number}">
+          <div class="q-number">Question ${q.number}</div>
+          <div class="q-text">${escapeHtml(q.question)}</div>
+          <div class="options">
+            ${optionHtml(i, 'A', q.options.A)}
+            ${optionHtml(i, 'B', q.options.B)}
+            ${optionHtml(i, 'C', q.options.C)}
+            ${optionHtml(i, 'D', q.options.D)}
+          </div>
+          <div class="feedback" id="feedback-${i}"></div>
+        </section>
+      `).join("");
+    }
+
+     function selectAnswer(index, choice) {
+    const q = questions[index];
+    const buttons = document.querySelectorAll(`button[data-q="${index}"]`);
+    const feedback = document.getElementById(`feedback-${index}`);
+
+    if ([...buttons].some(btn => btn.classList.contains("disabled"))) return;
+
+    buttons.forEach(btn => {
+      btn.classList.add("disabled");
+      const btnChoice = btn.dataset.choice;
+
+      if (choice === q.answer) {
+        if (btnChoice === choice) {
+          btn.classList.add("correct");
+        }
+      } else {
+        if (btnChoice === choice) {
+          btn.classList.add("wrong");
+        }
+        if (btnChoice === q.answer) {
+          btn.classList.add("correct");
+        }
+      }
+    });
+
+    if (choice === q.answer) {
+      feedback.textContent = "Correct";
+      feedback.className = "feedback correct";
+    } else {
+      feedback.textContent = `Incorrect. Correct answer: ${q.answer}`;
+      feedback.className = "feedback wrong";
+    }
+  }
+
+    function resetQuiz() {
+      document.querySelectorAll(".option").forEach(btn => {
+        btn.classList.remove("correct", "wrong", "disabled");
+      });
+      document.querySelectorAll(".feedback").forEach(f => {
+        f.textContent = "";
+        f.className = "feedback";
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+
+    renderQuiz();
+  </script>
+</body>
+</html>
